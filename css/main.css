@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+#page-wrapper {
+  background-image: url('../media/images/mobile/bg-image-daytime.jpg');
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}
+
+#page-wrapper-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+
+}
+
+#main {}
+
+#main #main-wrapper {
+  padding: 30px;
+  color: white;
+  text-transform: uppercase;
+}
+
+#main #greeter {
+  font-size: 15px;
+  font-weight: 200;
+  color: white;
+}
+
+#main #greeter img {
+  display: inline-block;
+  text-align: center;
+}
+
+
+#main #greeter p {
+  vertical-align: top;
+  display: inline-block;
+  line-height: 20px;
+  font-size: 20px;
+}
+
+#main #time {
+  font-size: 125px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+#main #location p {
+  vertical-align: top;
+  display: inline-block;
+  line-height: 20px;
+  font-size: 20px;
+  margin-bottom: 50px;
+}
+
+#main #menu-switcher {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: white;
+}
+
+#main #menu-switcher-inner {
+  position: relative;
+}
+
+#main #menu-switcher p {
+  padding: 7.5px;
+  width: 100px;
+  display: inline-block;
+  height: 40px;
+  color: #303030;
+  vertical-align: top;
+  font-size: 15px;
+}
+
+#main #menu-switcher #toggle {
+  width: 30px;
+  height: 30px;
+  background-color: #303030;
+  border-radius: 20px;
+  position: absolute;
+  top: 0px;
+  left: calc(100% - 35px);
+}
