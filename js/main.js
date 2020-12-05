@@ -38,7 +38,7 @@ async function print() {
   });
 
   await getTime().then((data) => {
-    let now = new Date(data);
+    let now = new Date(data * 1000);
     let hours = now.getHours();
     let minutes = now.getMinutes();
     domElements.time.text(`${hours}:${minutes}`);
