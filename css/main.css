@@ -8,6 +8,7 @@
   width: 100%;
   height: 100vh;
   background-size: cover;
+  overflow: hidden;
 }
 
 #page-wrapper-inner {
@@ -15,63 +16,80 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-
+  position: relative;
 }
 
-#main {}
+#main { 
+  position: absolute;
+  transition: all 0.3s ease;
+  width: 100%;
+ }
+
+#main.more { top: calc(100% - 150px); }
+#main.less { top: 100%; }
 
 #main #main-wrapper {
-  padding: 30px;
   color: white;
   text-transform: uppercase;
+  position: relative;
 }
 
-#main #greeter {
+#main #primary {
+
+  position: absolute;
+  height: 340px;
+  top: -340px;
+  padding: 20px;}
+
+#main #secondary {
+  padding: 20px;
+}
+
+#main #primary__greeter {
   font-size: 15px;
   font-weight: 200;
   color: white;
 }
 
-#main #greeter img {
-  display: inline-block;
+#main #primary__greeter img {
+  display: inline;
   text-align: center;
 }
 
-
-#main #greeter p {
+#main #primary__greeter p {
+  display: inline;
   vertical-align: top;
-  display: inline-block;
   line-height: 20px;
   font-size: 20px;
 }
 
-#main #time {
+#main #primary__time {
   font-size: 125px;
   font-weight: 700;
   margin: 10px 0;
 }
 
-#main #location p {
+#main #primary__location p {
   vertical-align: top;
-  display: inline-block;
   line-height: 20px;
   font-size: 20px;
   margin-bottom: 50px;
 }
 
-#main #menu-switcher {
+#main #primary__menu-switcher {
   width: 100px;
   height: 40px;
   border-radius: 20px;
   padding: 5px;
   background-color: white;
+  cursor: pointer;
 }
 
-#main #menu-switcher-inner {
+#main #primary__menu-switcher__inner {
   position: relative;
 }
 
-#main #menu-switcher p {
+#main #primary__menu-switcher p {
   padding: 7.5px;
   width: 100px;
   display: inline-block;
@@ -81,12 +99,37 @@
   font-size: 15px;
 }
 
-#main #menu-switcher #toggle {
+#main #primary__menu-switcher p::after {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+#main #primary__menu-switcher p.less::after {
+  left: 10px;
+  content: "MORE"
+}
+
+#main #primary__menu-switcher p.more::after {
+  position: absolute;
+  left: 40px;
+  content: "LESS"
+}
+
+#main #primary__toggle {
   width: 30px;
   height: 30px;
   background-color: #303030;
   border-radius: 20px;
   position: absolute;
   top: 0px;
-  left: calc(100% - 35px);
+  transition: all 0.3s ease
+}
+
+#main #primary__toggle.more { left: calc(0px + 0px); }
+#main #primary__toggle.less { left: calc(0px + 60px); }
+
+#main #secondary {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px) brightness(1.2);
 }

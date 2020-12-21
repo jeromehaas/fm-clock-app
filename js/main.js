@@ -1,16 +1,44 @@
 "use strict";
 
 const domElements = {
-  weatherIcon: $("#greeter img"),
-  greeter: $("#greeter p"),
-  time: $("#time"),
-  country: $("#country"),
-  city: $("#city"),
+  weatherIcon: $("#primary__greeter img"),
+  greeter: $("#primary__greeter p"),
+  time: $("#primary__time"),
+  country: $("#primary__country"),
+  text: $("#primary__text"),
+  city: $("#primary__city"),
+  menuSwitcher: $("#primary__menu-switcher"),
+  toggle: $("#primary__toggle"),
+  toggleText: $("#primary__menu-switcher p"),
+  main: $("#main"),
+
 };
+
+const changableElements = [
+  domElements.menuSwitcher,
+  domElements.toggle,
+  domElements.main,
+  domElements.toggleText
+]
+
+domElements.menuSwitcher.on('click', () => {
+  if (domElements.menuSwitcher.hasClass('less')) {
+    changableElements.forEach(el => {
+      el.removeClass('less')
+      el.addClass('more')
+    })
+  } 
+  else if (domElements.menuSwitcher.hasClass('more')) {
+    changableElements.forEach(el => {
+      el.removeClass('more')
+      el.addClass('less')
+    }) 
+  }
+})
 
 async function getCountry() {
   const response = await fetch("https://freegeoip.app/json/");
-  const data = await response.json();
+  const data = await response.json()
   return data.country_name;
 }
 
